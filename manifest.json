@@ -1,0 +1,7 @@
+{
+  "name": "Mute New Guild",
+  "version": "1.0.0",
+  "description": "Automatically mutes newly joined guilds",
+  "author": "RazerMoon",
+  "license": "MIT"
+}
