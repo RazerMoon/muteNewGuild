@@ -21,7 +21,7 @@ module.exports = class MuteNewGuild extends Plugin {
 
   async handleDM (id) {
     const { getSanitizedRestrictedGuilds } = await getModule([ 'getSanitizedRestrictedGuilds' ]);
-    const { updateRemoteSettings } = await getModule([ 'updateRemoteSettings' ]);
+    const update = await getModule([ 'updateRemoteSettings' ]);
 
     const guilds = new Set(
       (0, getSanitizedRestrictedGuilds)()
@@ -33,7 +33,7 @@ module.exports = class MuteNewGuild extends Plugin {
       guilds.add(id);
     }
 
-    updateRemoteSettings({
+    update.updateRemoteSettings({
       restrictedGuilds: Array.from(guilds)
     });
   }
@@ -46,7 +46,7 @@ module.exports = class MuteNewGuild extends Plugin {
       suppress_roles: this.settings.get('suppress_roles', false),
       mobile_push: this.settings.get('mobile_push', true) });
 
-    // this.handleDM(id);
+    this.handleDM(id);
   }
 
   pluginWillUnload () {

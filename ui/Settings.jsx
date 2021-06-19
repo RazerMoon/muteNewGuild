@@ -28,7 +28,6 @@ module.exports = ({ getSetting, toggleSetting }) => (
       Mobile Push
     </SwitchItem>
     <SwitchItem
-      disabled={true}
       value={getSetting('dms', true)}
       onChange={() => toggleSetting('dms')}
     >
